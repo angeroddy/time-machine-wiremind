@@ -1,1 +1,21 @@
-<p>snapshot-table works!</p>
+ <div class="snapshot-container">
+    <p class="text-center">TEMPORAL LOG</p>
+      <table class="snapshot-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Year</th>
+            <th>Flow Rate</th>
+            <th>Era</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let snapshot of snapshots">
+            <td>{{ snapshot.time }}</td>
+            <td class="value">{{ snapshot.year }}</td>
+            <td class="value">{{ snapshot.flowRate }}</td>
+            <td>{{ snapshot.era }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

@@ -1,1 +1,26 @@
-<p>time-machine-container works!</p>
+<div
+  class="w-screen h-screen bg-[radial-gradient(circle_at_center,_#4CB905_20%,_#040404_80%)] flex justify-center items-center flex-col"
+>
+  <div class="grp-title flex">
+    <img src="assets/images/horloge.png " class="w-auto h-20" />
+    <p class="text-[50px] vert-custom">TIME MACHINE</p>
+  </div>
+
+  <main class="flex justify-center items-center">
+    <div class="relative">
+      <img src="assets/images/terminal.png" class="w-auto h-200" />
+      <div class="absolute inset-0 p-12 flex flex-col">
+        <section class="text-center">
+          <app-year-display [year]="currentYear" [era]="currentEra"></app-year-display>
+        </section>
+
+        <section class="flex justify-center mt-4">
+          <app-velocity-control></app-velocity-control>
+        </section>
+        <section class="flex justify-center">
+          <app-snapshot-table></app-snapshot-table>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>

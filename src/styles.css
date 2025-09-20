@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+
+
+body {
+  font-family: 'VT323', monospace;
+}
+.vert-custom{
+    color: #7AF914;
+}
+.vert-custom-bg{
+    background-color:#7AF914;
+}
+.vert-border{
+    border-color: #204105;
+}

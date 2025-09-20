@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './velocity-control.css'
 })
 export class VelocityControl {
+  velocity = 0;
 
+  
+
+  IncrementVelocity(){
+    this.velocity ++;
+  }
+  DecrementVelocity(){
+    this.velocity--;
+  }
 }
