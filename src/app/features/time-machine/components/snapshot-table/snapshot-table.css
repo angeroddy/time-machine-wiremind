@@ -21,7 +21,7 @@
       border: 1px solid #7AF914;
       padding: 12px 20px;
       text-align: left;
-      background-color: #1a1a1a;
+     
     }
     
     .snapshot-table th {
@@ -66,3 +66,5 @@
       pointer-events: none;
     }
   
+
+    

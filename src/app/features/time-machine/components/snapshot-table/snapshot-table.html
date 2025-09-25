@@ -1,21 +1,30 @@
- <div class="snapshot-container">
-    <p class="text-center">TEMPORAL LOG</p>
-      <table class="snapshot-table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Year</th>
-            <th>Flow Rate</th>
-            <th>Era</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let snapshot of snapshots">
-            <td>{{ snapshot.time }}</td>
-            <td class="value">{{ snapshot.year }}</td>
-            <td class="value">{{ snapshot.flowRate }}</td>
-            <td>{{ snapshot.era }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="snapshot-container">
+  <p class="text-center">TEMPORAL LOG</p>
+  <table class="snapshot-table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Year</th>
+        <th>Flow Rate</th>
+        <th>Era</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let snapshot of paginatedSnapshots">
+        <td>{{ snapshot.datetime }}</td>
+        <td class="value">{{ snapshot.year }}</td>
+        <td class="value">{{ snapshot.velocity }}</td>
+        <td>{{ snapshot.era }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div *ngIf="totalPages > 1" class="pagination flex justify-center gap-2 mt-3">
+    <button class="cursor-pointer hover:text-[#04cc04] transition-colors duration-300" [disabled]="!canGoPrevious()" (click)="previousPage()">← Previous</button>
+    <button class="cursor-pointer hover:text-[#04cc04] transition-colors duration-300" *ngFor="let page of getPageNumbers()" 
+            [class.active]="page === currentPage" 
+            (click)="goToPage(page)">{{ page }}</button>
+    <button class="cursor-pointer hover:text-[#04cc04] transition-colors duration-300" [disabled]="!canGoNext()" (click)="nextPage()">Next →</button>
+  </div>
+</div>

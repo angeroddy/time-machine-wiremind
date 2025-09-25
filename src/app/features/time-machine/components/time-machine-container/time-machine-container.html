@@ -11,7 +11,12 @@
       <img src="assets/images/terminal.png" class="w-auto h-200" />
       <div class="absolute inset-0 p-12 flex flex-col">
         <section class="text-center">
-          <app-year-display [year]="currentYear" [era]="currentEra"></app-year-display>
+          <app-year-display
+            [year]="timeMachine.currentYear"
+            [era]="timeMachine.getCurrentState().era"
+          >
+            ></app-year-display
+          >
         </section>
 
         <section class="flex justify-center mt-4">

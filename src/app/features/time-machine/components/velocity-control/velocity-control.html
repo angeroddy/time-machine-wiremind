@@ -2,20 +2,29 @@
   <div
     class="velocity-container text-center flex flex-col justify-center border-2 border-solid border-white w-70 rounded-sm p-2"
   >
-    <p class="text-white text-[20px]">Flow(Velocity)</p>
+   <p [style.color]="timeMachine.velocity > 0 ? 'green' : 'red'" class="text-[20px]">
+  Flow (Velocity)
+</p>
+
     <div class="btn-group flex items-center justify-between">
       <button
         type="button"
-        (click)="DecrementVelocity()"
+        (click)="decrease()"
         class="text-black font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 vert-custom-bg border-white border-2 border-solid cursor-pointer"
       >
         -
       </button>
-      <p class="text-white">{{ velocity }}</p>
+      <input
+        type="text"
+        [value]="timeMachine.velocity"
+         (input)="onVelocityChange($event)"
+        placeholder="0"
+        class="text-green-400 bg-transparent border-none rounded text-center p-2 mb-3 font-mono text-lg w-20 focus:outline-none cursor-default"
+      />
       <button
         type="button"
         class="text-black font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 vert-custom-bg border-white border-2 border-solid cursor-pointer"
-        (click)="IncrementVelocity()"
+        (click)="increase()"
       >
         +
       </button>
@@ -23,13 +32,19 @@
     <p class="text-white opacity-25">augmente de x par seconde</p>
   </div>
   <div class="btn-group-2 mt-2 flex gap-2">
-    <button type="button" class="text-black launch-button p-3 cursor-pointer">LAUNCH THE MACHINE</button>
-    <button type="button" class="text-black restart-button p-3 cursor-pointer">RESTART</button>
+    <button type="button" class="text-black launch-button p-3 cursor-pointer"
+    (click)="launch_count()">
+      {{ this.timeMachine.can_count ? 'PAUSE' : 'LAUNCH THE MACHINE' }}
+    </button>
+    <button type="button" class="text-black restart-button p-3 cursor-pointer"
+    (click)="restart()"
+    >RESTART</button>
   </div>
-   <button
-        type="button"
-        class="check-btn vert-custom cursor-pointer font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  vert-border border-2 border-solid mt-2 w-full"
-      >
-        CREATE A CHECKPOINT
-      </button>
+  <button
+    type="button"
+    (click)="createCheckpoint()"
+    class="check-btn vert-custom cursor-pointer font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 vert-border border-2 border-solid mt-2 w-full"
+  >
+    CREATE A CHECKPOINT
+  </button>
 </div>

@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 import { TimeMachineContainer } from "./features/time-machine/components/time-machine-container/time-machine-container";
 
 @Component({
